@@ -1,0 +1,65 @@
+<div class="list row" style="width: 700px; margin: auto; background-color: black; margin-top: 200px; color: white;">
+  
+  <div class="col-md-6">
+    <h2 style="margin-top: 10px;">Employees List</h2>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let employee of employeedetails; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTutorial(employee, i)"
+      >
+        {{ employee.firstname }}
+      </li>
+    </ul>
+
+    <div style="margin-left: 10px;">
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button>
+      <button class="m-3 btn btn-sm btn-success" routerLink="/add">
+        Add Employee
+      </button>
+      <div style="margin-top: -20px; margin-left: 60px;">
+        <button class="m-3 btn btn-sm btn-success" routerLink="/admindetails" style="background-color: blueviolet; border: blueviolet;">
+          Admin List
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentEmployee">
+      <h4 style="margin-top: 10px;">Employee</h4>
+      <div>
+        <label><strong>Firstname:</strong></label> {{ currentEmployee.firstname }}
+      </div>
+      <div>
+        <label><strong>Lastname:</strong></label>
+        {{ currentEmployee.lastname }}
+      </div>
+      <div>
+        <label><strong>Mobile:</strong></label>
+        {{ currentEmployee.mobile }}
+      </div>
+      <div>
+        <label><strong>Email:</strong></label>
+        {{ currentEmployee.email }}
+      </div>
+      <div>
+        <label><strong>Salary:</strong></label>
+        {{ currentEmployee.salary }}
+      </div>
+      
+
+      <button style="background-color: blue;" class="badge badge-warning" routerLink="/employeedetails/{{ currentEmployee.id }}">
+        Edit
+      </button>
+    </div>
+
+    <div *ngIf="!currentEmployee">
+      <br />
+      <p>Please click on a Employee...</p>
+    </div>
+  </div>
+</div>
