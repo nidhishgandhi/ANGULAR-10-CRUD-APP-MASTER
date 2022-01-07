@@ -1,0 +1,96 @@
+<div style="width: 400px; margin: auto">
+  <div *ngIf="currentEmployee" class="edit-form">
+    <h4>Employee</h4>
+    <form (ngSubmit)="updateTutorial()" [formGroup]="deform">
+      <div class="form-group">
+        <label for="firstname">Firstname</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstname"
+          [(ngModel)]="currentEmployee.firstname"
+          name="firstname"
+          formControlName="firstname"
+        />
+        <span *ngIf="firstname.invalid && firstname.touched" class="error"
+          >Enter name between 3-10 characters</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="lastname">Lastname</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastname"
+          [(ngModel)]="currentEmployee.lastname"
+          name="lastname"
+          formControlName="lastname"
+        />
+        <span *ngIf="lastname.invalid && lastname.touched" class="error"
+          >Enter name between 3-10 characters</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile</label>
+        <input
+          type="text"
+          class="form-control"
+          id="mobile"
+          [(ngModel)]="currentEmployee.mobile"
+          name="mobile"
+          formControlName="mobile"
+        />
+        <span *ngIf="mobile.invalid && mobile.touched" class="error"
+          >Please Enter 10 digit Mobile number</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="currentEmployee.email"
+          name="email"
+          formControlName="email"
+        />
+        <span *ngIf="email.invalid && email.touched" class="error"
+          >Email is invalid</span
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="salary">Salary</label>
+        <input
+          type="text"
+          class="form-control"
+          id="salary"
+          [(ngModel)]="currentEmployee.salary"
+          name="salary"
+          formControlName="salary"
+        />
+        <span *ngIf="salary.invalid && salary.touched" class="error"
+          >Salary is invalid</span
+        >
+      </div>
+      <button class="btn btn-sm btn-danger" (click)="deleteTutorial()">
+        Delete
+      </button>
+
+      <button
+        type="submit"
+        class="m-3 btn btn-sm btn-success"
+        [disabled]="deform.invalid"
+      >
+        Update
+      </button>
+    </form>
+
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentEmployee">
+    <br />
+    <p>Cannot access this Employee...</p>
+  </div>
+</div>

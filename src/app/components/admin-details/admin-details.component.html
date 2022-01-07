@@ -1,0 +1,63 @@
+<div style="width: 400px; margin: auto;">
+    <div *ngIf="currentAdmin" class="edit-form">
+      <h4>Admin</h4>
+      <form>
+        <div class="form-group">
+          <label for="emailid">EmailID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="emailid"
+            [(ngModel)]="currentAdmin.emailid"
+            name="emailid"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="text"
+            class="form-control"
+            id="password"
+            [(ngModel)]="currentAdmin.password"
+            name="password"
+          />
+        </div>
+        
+  
+      </form>
+  
+      <!-- <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentTutorial.published"
+        (click)="updatePublished(false)"
+      >
+        UnPublish
+      </button>
+      <button
+        *ngIf="!currentTutorial.published"
+        class="badge badge-primary mr-2"
+        (click)="updatePublished(true)"
+      >
+        Publish
+      </button> -->
+  
+      <button class="btn btn-sm btn-danger" (click)="deleteAdmin()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"    
+        class="m-3 btn btn-sm btn-success"
+        (click)="updateAdmin()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentAdmin">
+      <br />
+      <p>Cannot access this Admin...</p>
+    </div>
+  </div>
+  

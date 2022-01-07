@@ -1,0 +1,45 @@
+<!-- <div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        
+        <div class="form-group">
+          <label for="emailid">Enter Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="emailid"
+            required
+            [(ngModel)]="admin.emailid"
+            name="emailid"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Enter Password</label>
+          <input
+            type="text"
+            class="form-control"
+            id="password"
+            required
+            [(ngModel)]="admin.password"
+            name="password"
+          />
+        </div>
+        
+  
+          <button (click)="saveAdmin()" class="btn btn-success" style="margin-top: 5px;">Submit</button>
+          <a routerLink="employeedetails" class="nav-link" style="margin-top: -35px; margin-left: 100px;">Already registered? Login</a>
+           
+        
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success mx-3" (click)="newAdmin()">Register another Admin</button>
+        <button routerLink="admindetails" class="btn btn-success" >Admin Profile</button>
+        <button routerLink="add" class="btn btn-success mx-3 my-2" >Add Employees</button>
+        <button routerLink="employeedetails" class="btn btn-success mx-3 my-2" >Employee List</button>
+
+      </div>
+    </div>
+  </div>
+   -->
