@@ -1,0 +1,105 @@
+<div style="width: 400px; margin: auto; background-color: black; margin-top: 200px; color: white;">
+  <div *ngIf="currentEmployee" class="edit-form">
+    <button routerLink="/employeedetails" class="m-3 btn btn-sm btn-success" style="margin-left: -40px; background-color: black; border: black;"> ← </button>
+    <div style="margin-left: 20px;">
+      <h2 style="margin-top: -50px; margin-left: 25px;">Update Employee</h2>
+        <form (ngSubmit)="updateTutorial()" [formGroup]="deform">
+          <div class="form-group">
+            <label for="firstname">Firstname</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstname"
+              style="width: fit-content;"
+              [(ngModel)]="currentEmployee.firstname"
+              name="firstname"
+              formControlName="firstname"
+            />
+            <span *ngIf="firstname.invalid && firstname.touched" class="error"
+              >FirstName should have atleast 3 characters</span
+            >
+          </div>
+          <div class="form-group">
+            <label for="lastname">Lastname</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              style="width: fit-content;"
+              [(ngModel)]="currentEmployee.lastname"
+              name="lastname"
+              formControlName="lastname"
+            />
+            <span *ngIf="lastname.invalid && lastname.touched" class="error"
+              >LastName should have atleast 3 characters</span
+            >
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              id="mobile"
+              style="width: fit-content;"
+              [(ngModel)]="currentEmployee.mobile"
+              name="mobile"
+              formControlName="mobile"
+            />
+            <span *ngIf="mobile.invalid && mobile.touched" class="error"
+              >Mobile Number should have 10 digits</span
+            >
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              style="width: fit-content;"
+              [(ngModel)]="currentEmployee.email"
+              name="email"
+              formControlName="email"
+            />
+            <span *ngIf="email.invalid && email.touched" class="error"
+              >Email is invalid</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="salary">Salary</label>
+            <input
+              type="text"
+              class="form-control"
+              id="salary"
+              style="width: fit-content;"
+              [(ngModel)]="currentEmployee.salary"
+              name="salary"
+              formControlName="salary"
+            />
+            <span *ngIf="salary.invalid && salary.touched" class="error"
+              >Salary is invalid</span
+            >
+          </div>
+          <button class="btn btn-sm btn-danger" (click)="deleteTutorial()">
+            Delete
+          </button>
+
+          <button
+            type="submit"
+            class="m-3 btn btn-sm btn-success"
+            [disabled]="deform.invalid"
+          >
+            Update
+          </button>
+        </form>
+
+        <p>{{ message }}</p>
+      </div>
+
+      </div>
+
+      <div *ngIf="!currentEmployee">
+        <br />
+        <p>Cannot access this Employee...</p>
+      </div>
+</div>
