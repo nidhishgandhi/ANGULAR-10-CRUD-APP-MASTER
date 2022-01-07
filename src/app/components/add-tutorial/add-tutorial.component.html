@@ -1,0 +1,108 @@
+<div style="width: 400px; margin: auto; background-color: black; margin-top: 200px; color: white;">
+  <button routerLink="/employeedetails" class="m-3 btn btn-sm btn-success" style="margin-left: -40px; background-color: black; border: black;"> ← </button>
+  <div style="margin-left: 20px;">
+    <h2 style="margin-top: -50px; margin-left: 25px;">Add Employee</h2>
+      <div class="submit-form">
+        <form (ngSubmit)="saveTutorial()" [formGroup]="emform">
+          <div *ngIf="!submitted">
+            <div class="form-group">
+              <label for="firstname">Firstname</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                style="width: fit-content;"
+                [(ngModel)]="employee.firstname"
+                name="firstname"
+                formControlName="firstname"
+                required
+              />
+              <span *ngIf="firstname.invalid && firstname.touched" class="error"
+                >FirstName should have atleast 3 characters</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="lastname">Lastname</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                style="width: fit-content;"
+                required
+                [(ngModel)]="employee.lastname"
+                name="lastname"
+                formControlName="lastname"
+              />
+              <span *ngIf="lastname.invalid && lastname.touched" class="error"
+                >LastName should have atleast 3 characters</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile</label>
+              <input
+                type="text"
+                class="form-control"
+                id="mobile"
+                style="width: fit-content;"
+                required
+                [(ngModel)]="employee.mobile"
+                name="mobile"
+                formControlName="mobile"
+              />
+              <span *ngIf="mobile.invalid && mobile.touched" class="error"
+                >Mobile Number should have 10 digits</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                style="width: fit-content;"
+                required
+                [(ngModel)]="employee.email"
+                name="email"
+                formControlName="email"
+              />
+              <span *ngIf="email.invalid && email.touched" class="error"
+                >Email is invalid</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input
+                class="form-control"
+                id="salary"
+                style="width: fit-content;"
+                required
+                [(ngModel)]="employee.salary"
+                name="salary"
+                formControlName="salary"
+              />
+              <span *ngIf="salary.invalid && salary.touched" class="error"
+                >Salary is invalid</span
+              >
+            </div>
+            <button
+              type="submit"
+              [disabled]="emform.invalid"
+              class="btn btn-success"
+              style="margin-top: 10px; margin-bottom: 10px;"
+            >
+              Add →
+            </button>
+          </div>
+        </form>
+
+        <div *ngIf="submitted">
+          <h4>You submitted successfull!</h4>
+          <button class="btn btn-success" (click)="newTutorial()">Add</button>
+          <button routerLink="employeedetailss" class="btn btn-success mx-3 my-2">
+            Employee List
+          </button>
+        </div>
+      </div>
+  </div>
+</div>
